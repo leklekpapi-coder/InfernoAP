@@ -1,4 +1,4 @@
-
+loadstring([[
 local Players           = game:GetService("Players")
 local RunService        = game:GetService("RunService")
 local UserInputService  = game:GetService("UserInputService")
@@ -42,13 +42,12 @@ task.delay(0.1, function()
     tween:Play()
 end)
 
--- Particle overlay container (background galaxy/star effect)
+-- Particle overlay container
 local ParticleContainer = Instance.new("Frame", MainFrame)
 ParticleContainer.Size = UDim2.new(1, 0, 1, 0)
 ParticleContainer.BackgroundTransparency = 1
 ParticleContainer.ClipsDescendants = true
 
--- Generate random faint glowing particles (galaxy effect)
 local function createParticle(xScale, sizeOffset, transparency)
     local particle = Instance.new("Frame")
     particle.Size = UDim2.new(0, sizeOffset, 0, sizeOffset)
@@ -63,8 +62,6 @@ local function createParticle(xScale, sizeOffset, transparency)
     particle.Parent = ParticleContainer
 end
 
--- Manually placed particles for a static galaxy-like background
--- (These were likely generated procedurally in the original)
 createParticle(0.149879, 2, 0.138977)
 createParticle(0.955266, 2, 0.48614)
 createParticle(0.0428095, 1, 0.341728)
@@ -85,7 +82,6 @@ createParticle(0.0256322, 1, 0.440042)
 createParticle(0.201502, 2, 0.0195547)
 createParticle(0.349871, 2, 0.303394)
 createParticle(0.393091, 2, 0.0273485)
--- ... (many more particles for visual effect)
 
 -- Title bar
 local TitleBar = Instance.new("Frame", MainFrame)
@@ -102,7 +98,6 @@ TitleLabel.TextSize = 16
 TitleLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
 TitleLabel.TextXAlignment = Enum.TextXAlignment.Left
 
--- Minimize button (currently just visual, no functionality in provided code)
 local MinimizeButton = Instance.new("TextButton", TitleBar)
 MinimizeButton.Size = UDim2.new(0, 28, 0, 28)
 MinimizeButton.Position = UDim2.new(1, -32, 0, 2)
@@ -112,7 +107,6 @@ MinimizeButton.TextSize = 20
 MinimizeButton.BackgroundTransparency = 1
 MinimizeButton.TextColor3 = Color3.fromRGB(255, 255, 255)
 
--- Scrolling list for players / commands
 local ScrollingFrame = Instance.new("ScrollingFrame", MainFrame)
 ScrollingFrame.Position = UDim2.new(0, 10, 0, 40)
 ScrollingFrame.Size = UDim2.new(1, -20, 1, -80)
@@ -122,21 +116,16 @@ ScrollingFrame.ScrollBarThickness = 5
 local ListLayout = Instance.new("UIListLayout", ScrollingFrame)
 ListLayout.Padding = UDim.new(0, 6)
 
--- Empty / incomplete connections (likely meant to update player list or handle minimize)
 MinimizeButton.MouseButton1Click:Connect(function()
-    -- TODO: Toggle visibility or minimize
+    -- TODO
 end)
 
--- Intended to refresh UI when players join/leave, but incomplete
 Players.PlayerAdded:Connect(function(player)
-    -- Placeholder loop, never does anything useful
 end)
 
 Players.PlayerRemoving:Connect(function(player)
-    -- Placeholder loop, never does anything useful
 end)
 
--- Unused RenderStepped connection (probably for particle animation)
 RunService.RenderStepped:Connect(function(deltaTime)
-    -- Empty
 end)
+]])()
